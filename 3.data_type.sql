@@ -60,8 +60,8 @@ select cast('12' as unsigned);
 -- like패턴, 부등호 활용, date_format
 select * from post where created_time like '2025-05%'; -- 문자열처럼 조회
 -- 5월 1일 부터 5월 20일 까지, 날짜만 입력시 시간구분은 00:00:00이 자동으로 붙음음
-select * from post where created_time >= '2025-05-01' and created_time <= '2025-05-21';
-select * from post where created_time between '2025-05-01' and '2025-05-20';
+select * from post where created_time >= '2025-05-01' and created_time < '2025-05-21';
+select * from post where date_format(created_time, '%Y-%m-%d') between '2025-05-01' and '2025-05-20';
 
 select date_format(created_time, '%Y-%m-%d') as '날짜만' from post;
 select date_format(created_time, '%H:%i:%s') as '시간만' from post;
